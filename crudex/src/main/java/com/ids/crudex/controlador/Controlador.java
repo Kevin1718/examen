@@ -20,13 +20,20 @@ public class Controlador {
 	private IemployeeService service;
 	
 	
-	@GetMapping("listar")
+	@GetMapping("/listar")
 	public String listar(Model model) {
 		List<Employee>empleados=service.findAll();
 		model.addAttribute("empleados",empleados);
-		return "index";
+		return "index";}
 		
-		
+	@GetMapping("/new")
+	public String agregar(Model model) {
+		model.addAttribute("empleados",new Employee());
+		return "formulario";
+	}
+	public String save(@Valid Employee p,Model model) {
+		service.save(p);
+		return "redirect:/listar";
 	}
 	
 

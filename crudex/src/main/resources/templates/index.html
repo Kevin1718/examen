@@ -2,12 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>App Empleados</title>
+	<title>App employee</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 
 <body>
 	<div class="container mt-4">
+	<a th:href="@{/nuevo}" class = "btn btn-primary">insertar</a>
 
 		<table class="table">
 			<thead>
@@ -20,10 +21,10 @@
 
 			</thead>
 			<tbody>
-				<tr th=each"empleado:${empleados}">
-					<td>${empleado.id}</td>
-					<td>${empleado.name}</td>
-					<td>${empleado.surname}</td>
+				<tr th=each"empleado:${employee}">
+					<td >th:text=${empleado.id}</td>
+					<td >th:text=${empleado.name}</td>
+					<td >th:text=${empleado.surname}</td>
 				</tr>
 			</tbody>
 		</table>
